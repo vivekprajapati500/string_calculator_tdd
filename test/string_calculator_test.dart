@@ -33,5 +33,8 @@ void main(){
       expect(StringCalculator.add("//#\n7#8#9"), equals(24));
     });
 
+    test('should throw an exception for negative numbers', () {
+      expect(() => StringCalculator.add("-1,2,3"), throwsA(isA<FormatException>()));
+    });
   });
 }

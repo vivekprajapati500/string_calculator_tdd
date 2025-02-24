@@ -13,6 +13,15 @@ class StringCalculator {
     numbers = numbers.replaceAll('\n', delimiter);
 
     List<String> numList = numbers.split(delimiter).where((s) => s.isNotEmpty).toList();
-    return numList.map(int.parse).reduce((a, b) => a + b);
+
+    List<int> intList = numList.map(int.parse).toList();
+
+    List<int> negativeNumbers = intList.where((num) => num < 0).toList();
+
+    if (negativeNumbers.isNotEmpty) {
+      throw FormatException("negative numbers not allowed : ${negativeNumbers.join(', ')}");
+    }
+
+    return intList.reduce((a, b) => a + b);
   }
 }
