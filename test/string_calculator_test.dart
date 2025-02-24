@@ -35,6 +35,28 @@ void main(){
 
     test('should throw an exception for negative numbers', () {
       expect(() => StringCalculator.add("-1,2,3"), throwsA(isA<FormatException>()));
+
+      expect(
+            () => StringCalculator.add("1,-2,3,-4"),
+        throwsA(
+          isA<FormatException>().having(
+                (e) => e.message,
+            'message',
+            "negative numbers not allowed: -2, -4",
+          ),
+        ),
+      );
+
+      expect(
+            () => StringCalculator.add("//;\n1;-2;3;-5"),
+        throwsA(
+          isA<FormatException>().having(
+                (e) => e.message,
+            'message',
+            "negative numbers not allowed: -2, -5",
+          ),
+        ),
+      );
     });
   });
 }

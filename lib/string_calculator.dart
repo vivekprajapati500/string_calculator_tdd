@@ -19,7 +19,7 @@ class StringCalculator {
     List<int> negativeNumbers = intList.where((num) => num < 0).toList();
 
     if (negativeNumbers.isNotEmpty) {
-      throw FormatException("negative numbers not allowed : ${negativeNumbers.join(', ')}");
+      throw FormatException("negative numbers not allowed: ${negativeNumbers.join(', ')}");
     }
 
     return intList.reduce((a, b) => a + b);
