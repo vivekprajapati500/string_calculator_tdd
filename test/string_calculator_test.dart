@@ -69,5 +69,10 @@ void main(){
       expect(StringCalculator.add("//[***]\n1***2***3"), equals(6));
       expect(StringCalculator.add("//[--]\n7--8--9"), equals(24));
     });
+
+    test('should support multiple delimiters', () {
+      expect(StringCalculator.add("//[*][%]\n1*2%3"), equals(6));
+      expect(StringCalculator.add("//[*][%][#]\n10*20%30#40"), equals(100));
+    });
   });
 }
