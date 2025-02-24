@@ -22,6 +22,6 @@ class StringCalculator {
       throw FormatException("negative numbers not allowed: ${negativeNumbers.join(', ')}");
     }
 
-    return intList.reduce((a, b) => a + b);
+    return intList.where((num) => num <= 1000).reduce((a, b) => a + b);
   }
 }

@@ -58,5 +58,11 @@ void main(){
         ),
       );
     });
+
+    test('should ignore numbers greater than 1000', () {
+      expect(StringCalculator.add("2,1001"), equals(2));
+      expect(StringCalculator.add("1000,999,1001"), equals(1999));
+      expect(StringCalculator.add("//;\n500;1001;600"), equals(1100));
+    });
   });
 }
