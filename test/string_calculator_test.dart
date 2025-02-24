@@ -19,5 +19,10 @@ void main(){
     test('should handle an unknown amount of numbers', () {
       expect(StringCalculator.add("1,2,3,4,5"), equals(15));
     });
+
+    test('should handle new lines between numbers', () {
+      expect(StringCalculator.add("1\n2,3"), equals(6));
+    });
+
   });
 }
