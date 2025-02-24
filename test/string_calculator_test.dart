@@ -22,7 +22,10 @@ void main(){
 
     test('should handle new lines between numbers', () {
       expect(StringCalculator.add("1\n2,3"), equals(6));
+      expect(StringCalculator.add("4\n5\n6"), equals(15));
+      expect(StringCalculator.add("7,8\n9,10"), equals(34));
     });
+
 
   });
 }
