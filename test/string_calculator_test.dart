@@ -26,6 +26,9 @@ void main(){
       expect(StringCalculator.add("7,8\n9,10"), equals(34));
     });
 
+    test('should support different delimiters', () {
+      expect(StringCalculator.add("//;\n1;2"), equals(3));
+    });
 
   });
 }
