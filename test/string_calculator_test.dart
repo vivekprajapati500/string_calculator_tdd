@@ -3,7 +3,21 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:string_calculator_tdd/string_calculator.dart';
 
 void main(){
-  test('should return 0 for an empty string', () {
-    expect(StringCalculator.add(""), equals(0));
+  group('String Calculator', () {
+    test('should return 0 for an empty string', () {
+      expect(StringCalculator.add(""), equals(0));
+    });
+
+    test('should return the number itself if only one number is provided', () {
+      expect(StringCalculator.add("1"), equals(1));
+    });
+
+    test('should return the sum of two numbers', () {
+      expect(StringCalculator.add("1,5"), equals(6));
+    });
+
+    test('should handle an unknown amount of numbers', () {
+      expect(StringCalculator.add("1,2,3,4,5"), equals(15));
+    });
   });
 }
