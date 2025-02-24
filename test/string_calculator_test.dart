@@ -64,5 +64,10 @@ void main(){
       expect(StringCalculator.add("1000,999,1001"), equals(1999));
       expect(StringCalculator.add("//;\n500;1001;600"), equals(1100));
     });
+
+    test('should support multi-character delimiters', () {
+      expect(StringCalculator.add("//[***]\n1***2***3"), equals(6));
+      expect(StringCalculator.add("//[--]\n7--8--9"), equals(24));
+    });
   });
 }
